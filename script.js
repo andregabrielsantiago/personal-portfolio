@@ -18,7 +18,7 @@ const PROJECTS = [
     category: "Branding",
     year: "2024",
     initials: "IBM",
-    thumb: "Portfolio-Department-Shirt-Thumbnail.png",
+    thumb: "Shirt-Thumbnail.png",
     video: { type: "local", src: "Portfolio Department Shirt Video.mp4" },
     desc: "Official department shirt for the Institute of Business Management — featuring a DNA strand motif and a wolf emblem representing unity, leadership, and academic excellence. Officially adopted by the 2024 batch.",
     accent: "#f5c400",
@@ -385,4 +385,5 @@ window.addEventListener("load", () => {
   }, 1400);
 
 });
+
 
