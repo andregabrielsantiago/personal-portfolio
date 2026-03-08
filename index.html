@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Andre Gabriel | Creative Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     LOADER
+     ════════════════════════════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-logo">ANDRE GABRIEL</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<div class="bg-grid"></div>
+<canvas id="bgCanvas"></canvas>
+
+<!-- ════════════════════════════════════════════════════════
+     IBM DEPARTMENT SHIRT — MODAL
+     ════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="ibmModal" onclick="closeModalOnOverlay(event)">
+  <div class="modal-box">
+
+    <div class="modal-close-row">
+      <button class="modal-close-btn" onclick="closeModal()" aria-label="Close">&#x2715;</button>
+    </div>
+
+    <div class="modal-header">
+      <div class="modal-dept-tag">Shirt Design</div>
+      <h2 class="modal-title">IBM Department Shirt</h2>
+      <p class="modal-subtitle">Institute of Business Management — Official Uniform Design</p>
+    </div>
+
+    <div class="modal-chips">
+      <div class="m-chip">Officially Approved</div>
+      <div class="m-chip">2024 Batch Adopted</div>
+      <div class="m-chip">Wolf + DNA Concept</div>
+      <div class="m-chip">Brand Identity</div>
+    </div>
+
+    <div class="modal-tabs">
+      <div class="modal-tab active" id="tab-img"  onclick="switchTab('img')">Design Preview</div>
+      <div class="modal-tab"        id="tab-vid"  onclick="switchTab('vid')">Showcase Video</div>
+      <div class="modal-tab"        id="tab-desc" onclick="switchTab('desc')">About This Design</div>
+    </div>
+
+    <div class="modal-panels">
+
+      <!-- IMAGE PANEL — set thumb in PROJECTS[0] in script.js -->
+      <div class="modal-panel active" id="panel-img">
+        <div class="modal-img-frame" id="modalImgFrame"></div>
+        <p class="panel-caption">Front and back view of the IBM Department Shirt — Official 2024 design</p>
+      </div>
+
+      <!-- VIDEO PANEL — set video.src in PROJECTS[0] in script.js -->
+      <div class="modal-panel" id="panel-vid">
+        <div class="modal-video-shell" id="modalVideoShell"></div>
+        <p class="panel-caption">Official showcase of the IBM Department Shirt design and concept</p>
+      </div>
+
+      <!-- ABOUT PANEL -->
+      <div class="modal-panel" id="panel-desc">
+        <div class="modal-about-label">Project Description</div>
+        <p class="modal-about-text">
+          The Institute of Business Management Department Shirt was designed to represent
+          the department's identity, values, and collaborative spirit through a modern and
+          professional aesthetic. Inspired by the concept of business as a living system,
+          the design features a flowing DNA strand symbolizing the interconnectedness of
+          different majors and a wolf representing unity, leadership, and excellence.
+          The final design was officially approved and adopted by the department, and it
+          has been worn by students since the 2024 batch, serving as a visual symbol of
+          the Institute of Business Management community.
+        </p>
+
+        <div class="symbol-grid">
+          <div class="symbol-card">
+            <div class="symbol-icon">&#9668;</div>
+            <div class="symbol-name">DNA Strand</div>
+            <div class="symbol-desc">Represents the interconnectedness of all IBM majors — each strand a different discipline, woven into one unified system of growth.</div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon">&#9668;</div>
+            <div class="symbol-name">The Wolf</div>
+            <div class="symbol-desc">Embodies unity, leadership, and excellence — reflecting the strength of a community that moves forward together as one pack.</div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon">&#9668;</div>
+            <div class="symbol-name">Gold and Black Palette</div>
+            <div class="symbol-desc">Gold symbolizes academic excellence and ambition; black conveys professionalism, discipline, and prestige within the department.</div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon">&#9668;</div>
+            <div class="symbol-name">2024 Batch Legacy</div>
+            <div class="symbol-desc">Officially approved and adopted by the department, this design became the visual identity worn proudly since the 2024 student batch.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-icon">AG</div>
+    <span>ANDRE<br><span style="font-weight:400;font-size:.75em;color:var(--muted)">GABRIEL</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#hero"     class="active">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="#contact" class="btn-proposal">Hire Me</a>
+
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#hero"     onclick="toggleMenu()">Home</a></li>
+    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+    <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+    <li><a href="#contact"  onclick="toggleMenu()">Contact</a></li>
+    <li><a href="#contact"  onclick="toggleMenu()" style="color:var(--green);font-weight:800">&#8594; Hire Me</a></li>
+  </ul>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="orb orb-green" style="width:500px;height:500px;top:-100px;right:-100px"></div>
+  <div class="orb orb-blue"  style="width:400px;height:400px;bottom:-100px;left:-80px"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-left">
+        <p class="hero-agency reveal">ANDRE GABRIEL <span>| CREATIVE DESIGNER</span></p>
+        <h1 class="hero-h1 reveal reveal-delay-1">
+          ELEVATE YOUR <span class="dim">DIGITAL</span><br>
+          <span class="accent">DATA-DRIVEN</span> SOLUTIONS<br>
+          FOR THE FUTURE
+        </h1>
+        <p class="hero-p reveal reveal-delay-2">
+          Transforming brands through cutting-edge design, motion graphics, and visual storytelling.
+        </p>
+        <div class="hero-btns reveal reveal-delay-3">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#services"  class="btn-outline">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="social-float sf-ig" style="font-size:.75rem;font-weight:900">IG</div>
+        <div class="social-float sf-li" style="font-weight:900">in</div>
+        <div class="social-float sf-tw" style="font-weight:900">X</div>
+        <div class="social-float sf-fb" style="font-weight:900">f</div>
+
+        <div class="float-card fc-main">
+          <div class="fc-label">Projects Done</div>
+          <div class="fc-val">50+</div>
+          <div class="mini-chart" id="miniChart1"></div>
+        </div>
+        <div class="float-card fc-perf">
+          <div class="fc-label">Performance</div>
+          <div class="fc-val" style="font-size:1.2rem;margin-bottom:8px">Growth Rate</div>
+          <div style="display:flex;justify-content:space-between;font-size:.75rem">
+            <span style="color:var(--green)">+38%</span>
+            <span style="color:var(--muted)">vs last month</span>
+          </div>
+          <div class="mini-chart" id="miniChart2"></div>
+        </div>
+        <div class="float-card fc-growth">
+          <div class="fc-label">Client Satisfaction</div>
+          <div class="fc-val">98%</div>
+          <div class="fc-change">Consistently high</div>
+        </div>
+        <div class="float-card fc-seo">
+          <div class="fc-label">On-Time Delivery</div>
+          <div class="fc-val">100%</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     STATS BAR
+     ════════════════════════════════════════════════════════ -->
+<div id="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="s-num" data-count="50">0</div>
+        <div class="s-lbl">Projects Completed</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="s-num" data-count="98">0</div>
+        <div class="s-lbl">Client Satisfaction %</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="s-num" data-count="6">0</div>
+        <div class="s-lbl">Design Disciplines</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="s-num" data-count="3">0</div>
+        <div class="s-lbl">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PROJECTS
+     ════════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label reveal">My Work</p>
+        <h2 class="section-title reveal reveal-delay-1">Featured Projects</h2>
+      </div>
+      <div class="projects-controls reveal">
+        <div class="search-box">
+          <span style="color:var(--muted);font-size:.85rem">Search</span>
+          <input type="text" id="searchInput" placeholder="project, category..." oninput="filterProjects()"/>
+        </div>
+        <div class="filter-btns" id="filterBtns"></div>
+      </div>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SERVICES
+     ════════════════════════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-label reveal">What I Do</p>
+      <h2 class="section-title reveal reveal-delay-1" style="text-align:center">My Services</h2>
+      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;text-align:center">
+        Comprehensive creative services to elevate your brand's visual presence and communicate your story effectively.
+      </p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CONTACT
+     ════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="orb orb-green" style="width:350px;height:350px;top:0;right:0;opacity:.08"></div>
+  <div class="container">
+    <p class="section-label reveal">Get In Touch</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      Let's Build Something <span style="color:var(--green)">Great</span>
+    </h2>
+
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p style="color:var(--muted);margin-bottom:32px;font-size:.95rem">
+          Have a project in mind? I'd love to hear about it. Fill out the form or reach me directly.
+        </p>
+        <div class="contact-detail">
+          <div class="cd-icon">@</div>
+          <div><div class="cd-label">Email</div><div class="cd-val">hello@andregabriel.io</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">TEL</div>
+          <div><div class="cd-label">Phone</div><div class="cd-val">+63 900 000 0000</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">LOC</div>
+          <div><div class="cd-label">Location</div><div class="cd-val">Philippines</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">HRS</div>
+          <div><div class="cd-label">Availability</div><div class="cd-val">Mon–Fri, 9 AM – 6 PM</div></div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Juan" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="dela Cruz" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="juan@company.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Company / School</label>
+            <input type="text" placeholder="Your Organization"/>
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Brand Strategy &amp; Design</option>
+              <option>UI/UX &amp; Web Design</option>
+              <option>Social Media Design</option>
+              <option>Motion &amp; Video Graphics</option>
+              <option>Print &amp; Editorial Design</option>
+              <option>Packaging &amp; Collateral</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me about your project, timeline, and budget..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message &#8594;</button>
+          <div class="form-success" id="formSuccess">
+            Message sent! I will get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">ANDRE GABRIEL</div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <p class="footer-copy">
+      &copy; 2025 Andre Gabriel. All rights reserved. Designed and built by Andre Gabriel.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
